@@ -1,5 +1,11 @@
 # Jogo da Memória
 
+## Como jogar
+
+* Nesse mesmo site, clique na opção "Clone or Download".
+* Selecione a opção "Download ZIP".
+* No arquivo que baixado, extraia o conteúdo e execute o index.html
+
 ## Funcionamento do jogo
 
 O jogo é composto de 16 cartas que são embaralhadas no começo do jogo e ao reiniciar.
@@ -14,3 +20,9 @@ No jogo também há um contador de tempo que inicia quando se é clicado na prim
 
 Quando todas as combinações são encontradas o jogo exibe uma mensagem parabenizando o jogador exibindo pontuação,
 número de movimentos e tempo final.
+
+Lista de dependências do jogo
+
+## Dependências
+
+Toda funcionalidade do site foi criada usando Vanilla JavaScript e Jquery.
