@@ -1,7 +1,26 @@
+let second = 0;
+
+let timer;
+
+let domTimer = document.getElementById("timer");
+
+let modal = document.getElementById('myModal');
+
+let cardCompareList = [];
+
+let moveCounter = 0;
+
+let movesElement = document.getElementsByClassName("moves");
+
+let stars = document.getElementsByClassName("stars");
+
+let starInitial = stars[0].cloneNode(true);
+
+let deckSymbols = [];
+
+let deckCards = document.getElementsByClassName("card");
 
 // Funcionamento do shuffle.
-let deckSymbols = [];
-let deckCards = document.getElementsByClassName("card");
 for (deckSymbols, iteration = deckCards.length; iteration;) {
 	deckSymbols[--iteration] = deckCards[iteration].getElementsByTagName("i")[0].className;
 }
@@ -22,8 +41,7 @@ for (deckSymbols, iteration = deckCards.length; iteration;) {
 }
 
 // Estruturação do sistema de pontuação.
-let stars = document.getElementsByClassName("stars");
-let starInitial = stars[0].cloneNode(true);
+
 function decreaseScore(moveCounter){
 	if (moveCounter === 17){
 		stars[0].lastElementChild.remove();
@@ -34,15 +52,12 @@ function decreaseScore(moveCounter){
 }
 
 //Marcador de movimentos.
-let moveCounter = 0;
-let movesElement = document.getElementsByClassName("moves");
+
 function incrementMoveCounter(){
 	moveCounter ++;
 	movesElement[0].innerHTML = moveCounter;
 	decreaseScore(moveCounter);
 };
-
-let cardCompareList = [];
 
 function showCard(card){
 	if($(card).hasClass("open show") === false && $(card).hasClass("match") === false){
@@ -113,8 +128,6 @@ function cardCompare(card1, card2){
 		;}
 	};
 
-var modal = document.getElementById('myModal');
-
 function endGame() {
 		clearInterval(timer);
 		let movesFinal, timerFinal, starsFinal;
@@ -140,10 +153,6 @@ function toHHMMSS (seconds) {
 	if (seconds < 10) {seconds = "0"+seconds;}
 	return minutes+':'+seconds;
 }
-
-let second = 0;
-let timer;
-let domTimer = document.getElementById("timer");
 
 function StartTimer() {
 	timer = setInterval(function() {
