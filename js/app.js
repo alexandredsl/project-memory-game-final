@@ -50,7 +50,7 @@ function showCard(card){
 	}};
 
 function hideCard(card){
-	$(card).delay("3000").attr('class', 'card');
+	$(card).toggleClass("open show");
 };
 
 function cardMatch(cardCompareList){
@@ -61,11 +61,15 @@ function cardMatch(cardCompareList){
 };
 
 function cardNotMatch(cardCompareList)	{
+	$(deckCards).css("pointer-events", "none")
+	setTimeout(function() {
 	hideCard(cardCompareList);
-	$(cardCompareList).css("pointer-events", "auto")
+	$(deckCards).css("pointer-events", "auto")
+	$(".match").css("pointer-events", "none")
 	cardCompareList.pop(cardCompareList[0]);
 	cardCompareList.pop(cardCompareList[1]);
 	incrementMoveCounter();
+}, 1100)
 };
 
 function winCheck(){
@@ -159,7 +163,7 @@ function startGame() {
 			let card2 = cardCompareList[1].children[0].className;
 			cardCompare(card1, card2);
 		}
-		if(moveCounter === 0 && cardCompareList[0] != undefined){
+		if(moveCounter === 0 && cardCompareList[0] != undefined && second === 0){
 			StartTimer();
 		};
 	});
